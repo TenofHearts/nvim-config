@@ -1,6 +1,6 @@
 # Personal Neovim configuration
 
-Shared configuration for macOS, Linux and Windows, based on [Kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim) revision `80743df53d8f7058fc5b60e41f1081d11df9c880`. The upstream license is retained in LICENSE.md.
+Shared configuration for macOS, Linux and Windows, based on [Kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim). The upstream license is retained in LICENSE.md.
 
 Requires Neovim 0.12+, Git, ripgrep and fd. Pyright needs Node/npm. A Nerd Font is enabled; set `vim.g.have_nerd_font = false` if unavailable. A C compiler and make enable Telescope's optional native extension.
 
