@@ -6,6 +6,10 @@ TabWidth: 4
 UseTab: Never
 BreakBeforeBraces: Allman
 ColumnLimit: 80
+# Keep assignments together even when a long indivisible RHS exceeds the limit.
+PenaltyBreakAssignment: 1000000000
+# Wrap long boolean chains before their operators.
+BreakBeforeBinaryOperators: NonAssignment
 DerivePointerAlignment: false
 PointerAlignment: Right
 ReferenceAlignment: Pointer
