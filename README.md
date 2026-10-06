@@ -17,8 +17,8 @@ Start `nvim` to install the pinned plugins. Mason installs Pyright, Black and cl
 - Enter accepts a completion when its menu is visible; otherwise it inserts a newline. Up/Down or Ctrl-N/Ctrl-P select; Ctrl-Space opens the menu; Ctrl-E dismisses it.
 - Automatic pairing for brackets and quotes.
 - `Space e` toggles the file tree; `\` reveals the current file; `Space sf` searches files; `Space sg` searches text.
-- `Space f` formats manually; formatting on save is disabled.
-- C/C++: four spaces, Allman block braces, 80 columns, `int *pointer`, and access labels aligned with the class. Project clang-format files take precedence over `formatters/clang-format.yaml`.
+- `Space f` formats manually; formatting also runs on save.
+- C/C++: VS Code C/C++ extension's documented Visual Studio fallback style: four spaces, Allman block braces, and no column limit. Formatting preserves existing expression line breaks rather than wrapping based on width. Project clang-format files take precedence over `formatters/clang-format.yaml`.
 - Python: Pyright basic checks, project `.venv` detection, and Black defaults.
 - Rust: rust-analyzer, Clippy checks on save, and rustfmt defaults.
 
