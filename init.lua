@@ -185,6 +185,13 @@ do
   --  See `:help hlsearch`
   vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
+  -- Toggle comments on the current line or visual selection.
+  -- Some terminals send Ctrl+/ as Ctrl+_ instead.
+  for _, key in ipairs { '<C-/>', '<C-_>' } do
+    vim.keymap.set('n', key, 'gcc', { remap = true, desc = 'Toggle comment' })
+    vim.keymap.set('x', key, 'gc', { remap = true, desc = 'Toggle comment' })
+  end
+
   -- Diagnostic Config & Keymaps
   --  See `:help vim.diagnostic.Opts`
   vim.diagnostic.config {
