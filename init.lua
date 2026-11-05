@@ -368,13 +368,33 @@ do
   -- Adds git related signs to the gutter, as well as utilities for managing changes
   vim.pack.add { gh 'lewis6991/gitsigns.nvim' }
   local gitsigns = require 'gitsigns'
+  -- VS Code-style gutter colors, reapplied whenever the colorscheme changes.
+  local function set_git_sign_highlights()
+    for kind, color in pairs {
+      Add = '#587c0c',
+      Change = '#0c7d9d',
+      Delete = '#f14c4c',
+      Topdelete = '#f14c4c',
+      Changedelete = '#0c7d9d',
+      Untracked = '#587c0c',
+    } do
+      vim.api.nvim_set_hl(0, 'GitSigns' .. kind, { fg = color })
+    end
+  end
+  vim.api.nvim_create_autocmd('ColorScheme', {
+    group = vim.api.nvim_create_augroup('git-sign-colors', { clear = true }),
+    callback = set_git_sign_highlights,
+  })
+  set_git_sign_highlights()
   gitsigns.setup {
+    signcolumn = true,
     signs = {
-      add = { text = '+' }, ---@diagnostic disable-line: missing-fields
-      change = { text = '~' }, ---@diagnostic disable-line: missing-fields
-      delete = { text = '_' }, ---@diagnostic disable-line: missing-fields
-      topdelete = { text = '‾' }, ---@diagnostic disable-line: missing-fields
-      changedelete = { text = '~' }, ---@diagnostic disable-line: missing-fields
+      add = { text = '▎' }, ---@diagnostic disable-line: missing-fields
+      change = { text = '▎' }, ---@diagnostic disable-line: missing-fields
+      delete = { text = '▁' }, ---@diagnostic disable-line: missing-fields
+      topdelete = { text = '▔' }, ---@diagnostic disable-line: missing-fields
+      changedelete = { text = '▎' }, ---@diagnostic disable-line: missing-fields
+      untracked = { text = '▎' }, ---@diagnostic disable-line: missing-fields
     },
     -- gitsigns.nvim's recommended keymaps:
     on_attach = function(bufnr)
